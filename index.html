@@ -14,13 +14,10 @@
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    <script
+      src="https://kit.fontawesome.com/774557dd8b.js"
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    ></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </head>
   <body>
@@ -34,19 +31,64 @@
 
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <div class="inner"></div>
+          <div class="inner">
+            <div class="con">
+              <img src="img/pic1.png" alt="" />
+              <h2>Ipsum dolor sit amet.</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui,
+                optio.
+              </p>
+            </div>
+          </div>
         </div>
         <div class="swiper-slide">
-          <div class="inner"></div>
+          <div class="inner">
+            <div class="con">
+              <img src="img/pic2.png" alt="" />
+              <h2>Lorem ipsum dolor.</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Obcaecati eum doloribus voluptate officiis excepturi!
+              </p>
+            </div>
+          </div>
         </div>
         <div class="swiper-slide">
-          <div class="inner"></div>
+          <div class="inner">
+            <div class="con">
+              <img src="img/pic3.png" alt="" />
+              <h2>Dolor ipsum sit.</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Eligendi officiis iste nam quae.
+              </p>
+            </div>
+          </div>
         </div>
         <div class="swiper-slide">
-          <div class="inner"></div>
+          <div class="inner">
+            <div class="con">
+              <img src="img/pic4.png" alt="" />
+              <h2>Consectetur adicing.</h2>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit
+                optio debitis sapiente!
+              </p>
+            </div>
+          </div>
         </div>
         <div class="swiper-slide">
-          <div class="inner"></div>
+          <div class="inner">
+            <div class="con">
+              <img src="img/pic5.png" alt="" />
+              <h2>Dicta! elit.</h2>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos,
+                accu-santium corrupti.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -60,6 +102,7 @@
       const swiper = new Swiper(".wrap", {
         direction: "horizontal",
         loop: true,
+        loopedSlides: 2,
         pagination: {
           el: ".swiper-pagination",
           type: "fraction",
@@ -68,11 +111,34 @@
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
-        spaceBetween: 50,
+        spaceBetween: 0,
         slidesPerView: "auto",
         grabCursor: true,
         centeredSlides: true,
         speed: 1000,
+        effect: "coverflow",
+        coverflowEffect: {
+          rotate: 50,
+          stretch: -100,
+          depth: 400,
+          modifier: 1,
+          slideShadows: false,
+        },
+        autoplay: {
+          delay: 1000,
+          disableOnInteraction: true,
+        },
+      });
+
+      const btnStart = document.querySelector(".btnStart");
+      const btnStop = document.querySelector(".btnStop");
+
+      btnStart.addEventListener("click", () => {
+        swiper.autoplay.start();
+      });
+
+      btnStop.addEventListener("click", () => {
+        swiper.autoplay.stop();
       });
     </script>
   </body>
